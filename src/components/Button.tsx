@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {StyleSheet, Text, TouchableHighlight, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {colors} from '../theme';
+import {colors, spacing} from '../theme';
 
 type ButtonProps = {
   onPress: () => void;
@@ -27,7 +27,7 @@ const Button: FC<ButtonProps> = ({iconName, onPress, title}) => {
 
 const styles = StyleSheet.create({
   btn: {
-    borderRadius: 10,
+    borderRadius: spacing.borderRadius,
     overflow: 'hidden',
   },
   content: {

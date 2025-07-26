@@ -3,4 +3,5 @@ export const spacing = {
   screenVertical: 16,
   contentGap: 12,
   sectionMargin: 20,
+  borderRadius: 10,
 };

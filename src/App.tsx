@@ -10,6 +10,7 @@ import {SafeAreaView, StyleSheet, View} from 'react-native';
 import {Button} from './components/Button';
 import {Header} from './components/Header';
 import {Section} from './components/Section';
+import {AudioFileSection} from './components/sections/AudioFileSection';
 import {colors, spacing} from './theme';
 
 function App(): React.JSX.Element {
@@ -21,7 +22,7 @@ function App(): React.JSX.Element {
           subtitle="Upload your videos and audio files"
         />
         <Section title="Video Files" iconName="videocam" />
-        <Section title="Audio File" iconName="musical-notes" />
+        <AudioFileSection />
 
         <Button
           iconName="film-outline"
