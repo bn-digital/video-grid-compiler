@@ -8,8 +8,8 @@ import {
 } from '../../constants/mediaTypes';
 import {colors, spacing} from '../../theme';
 import {bytesToMB, formatMB, getFileExtension} from '../../utils/file';
-import {Section} from '../Section';
 import {UploadSlot} from '../UploadSlot';
+import {Section} from './Section';
 
 type AudioType = {
   uri: string;

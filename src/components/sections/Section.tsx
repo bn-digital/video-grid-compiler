@@ -1,7 +1,7 @@
 import {FC, PropsWithChildren} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {colors, spacing} from '../theme';
+import {colors, spacing} from '../../theme';
 
 type SectionProps = {
   title: string;

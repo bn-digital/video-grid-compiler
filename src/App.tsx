@@ -9,8 +9,8 @@ import React from 'react';
 import {SafeAreaView, StyleSheet, View} from 'react-native';
 import {Button} from './components/Button';
 import {Header} from './components/Header';
-import {Section} from './components/Section';
 import {AudioFileSection} from './components/sections/AudioFileSection';
+import {VideoFilesSection} from './components/sections/VideoFilesSection';
 import {colors, spacing} from './theme';
 
 function App(): React.JSX.Element {
@@ -21,7 +21,7 @@ function App(): React.JSX.Element {
           title="Upload Media"
           subtitle="Upload your videos and audio files"
         />
-        <Section title="Video Files" iconName="videocam" />
+        <VideoFilesSection />
         <AudioFileSection />
 
         <Button

@@ -20,9 +20,11 @@ const UploadSlot: FC<PropsWithChildren<UploadSlotProps>> = ({
 const styles = StyleSheet.create({
   wrapper: {
     borderColor: colors.typography.primary,
-    borderWidth: 1.9,
+    borderWidth: spacing.dottedBorderWidth,
     borderRadius: spacing.borderRadius,
     borderStyle: 'dashed',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

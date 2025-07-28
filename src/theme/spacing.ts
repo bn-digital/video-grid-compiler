@@ -4,4 +4,5 @@ export const spacing = {
   contentGap: 12,
   sectionMargin: 20,
   borderRadius: 10,
+  dottedBorderWidth: 1.9,
 };
