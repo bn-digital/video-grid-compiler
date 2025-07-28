@@ -24,11 +24,13 @@ function App(): React.JSX.Element {
         <VideoFilesSection />
         <AudioFileSection />
 
-        <Button
-          iconName="film-outline"
-          onPress={() => {}}
-          title={'Compile Video Clip'}
-        />
+        <View style={styles.btn}>
+          <Button
+            iconName="film-outline"
+            onPress={() => {}}
+            title="Compile Video Clip"
+          />
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -43,6 +45,10 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: spacing.screenHorizontal,
     paddingVertical: spacing.screenVertical,
+  },
+  btn: {
+    flex: 1,
+    justifyContent: 'flex-end',
   },
 });
 
