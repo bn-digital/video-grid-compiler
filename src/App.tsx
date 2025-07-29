@@ -7,6 +7,7 @@
 
 import React from 'react';
 import {SafeAreaView, StyleSheet, View} from 'react-native';
+import {SystemBars} from 'react-native-edge-to-edge';
 import Video from 'react-native-video';
 import {Button} from './components/buttons/Button';
 import {TextButton} from './components/buttons/TextButton';
@@ -17,9 +18,12 @@ import {colors, spacing} from './theme';
 
 function App(): React.JSX.Element {
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <View style={styles.container}>
-        {/* <Header
+    <>
+      <SystemBars style="auto" />
+
+      <SafeAreaView style={styles.safeArea}>
+        <View style={styles.container}>
+          {/* <Header
           title="Upload Media"
           subtitle="Upload your videos and audio files"
         />
@@ -33,30 +37,31 @@ function App(): React.JSX.Element {
             title="Compile Video Clip"
           />
         </View> */}
-        <Header
-          title="Video Compiled Successfully!"
-          subtitle="Your video clip has been created and is ready to preview and download"
-        />
-        <Section title="Preview" iconName="play-circle">
-          <Video
-            source={{uri: 'https://www.w3schools.com/html/mov_bbb.mp4'}}
-            style={styles.video}
-            controls
+          <Header
+            title="Video Compiled Successfully!"
+            subtitle="Your video clip has been created and is ready to preview and download"
           />
-        </Section>
+          <Section title="Preview" iconName="play-circle">
+            <Video
+              source={{uri: 'https://www.w3schools.com/html/mov_bbb.mp4'}}
+              style={styles.video}
+              controls
+            />
+          </Section>
 
-        <VideoDetails />
+          <VideoDetails />
 
-        <View style={styles.btn}>
-          <Button
-            iconName="film-outline"
-            title="Compile Video Clip"
-            onPress={() => {}}
-          />
-          <TextButton iconName="arrow-back" text="Create Another Video" />
+          <View style={styles.btn}>
+            <Button
+              iconName="film-outline"
+              title="Compile Video Clip"
+              onPress={() => {}}
+            />
+            <TextButton iconName="arrow-back" text="Create Another Video" />
+          </View>
         </View>
-      </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    </>
   );
 }
 
