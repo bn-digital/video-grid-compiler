@@ -12,5 +12,6 @@ export const colors = {
     invertedHighlight: '#44596E',
     highlight: '#E0F0F0',
     backdrop: '#00000080',
+    invertedDisabled: '#D6D6D6',
   },
 };

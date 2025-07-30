@@ -7,15 +7,25 @@ type ButtonProps = {
   onPress: () => void;
   iconName: string;
   title: string;
+  disabled?: boolean;
 };
 
-const Button: FC<ButtonProps> = ({iconName, onPress, title}) => {
+const Button: FC<ButtonProps> = ({iconName, onPress, title, disabled}) => {
   return (
     <TouchableHighlight
       underlayColor={colors.background.invertedHighlight}
       style={styles.btn}
-      onPress={onPress}>
-      <View style={styles.content}>
+      onPress={onPress}
+      disabled={disabled}>
+      <View
+        style={[
+          styles.content,
+          {
+            backgroundColor: disabled
+              ? colors.background.invertedDisabled
+              : colors.background.inverted,
+          },
+        ]}>
         <Icon name={iconName} size={21} color={colors.typography.inverted} />
         <Text style={styles.title} numberOfLines={1}>
           {title}
@@ -31,7 +41,6 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   content: {
-    backgroundColor: colors.background.inverted,
     height: 44,
     width: '100%',
     paddingHorizontal: 14,

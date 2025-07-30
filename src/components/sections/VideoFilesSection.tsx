@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {FC, useRef, useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Asset} from 'react-native-image-picker';
 import {spacing} from '../../theme';
@@ -6,10 +6,12 @@ import {VideoPickerModal} from '../modal/VideoPickerModal';
 import {VideoPlaceholder} from '../VideoPlaceholder';
 import {Section} from './Section';
 
-const videoSlots = new Array(4).fill(null);
+type VideoFilesSectionProps = {
+  assets: (Asset | null)[];
+  setAssets: React.Dispatch<React.SetStateAction<(Asset | null)[]>>;
+};
 
-const VideoFilesSection = () => {
-  const [assets, setAssets] = useState<(Asset | null)[]>(videoSlots);
+const VideoFilesSection: FC<VideoFilesSectionProps> = ({assets, setAssets}) => {
   const [modalShown, setModalShown] = useState<boolean>(false);
   const activeIndex = useRef<number | null>(null);
 

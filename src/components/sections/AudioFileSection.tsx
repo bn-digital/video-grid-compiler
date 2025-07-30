@@ -1,25 +1,23 @@
 import {pick} from '@react-native-documents/picker';
-import React, {useCallback, useMemo, useState} from 'react';
+import React, {FC, useCallback, useMemo} from 'react';
 import {Alert, Platform, StyleSheet, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {
   AUDIO_PICKER_ANDROID_TYPES,
   AUDIO_PICKER_IOS_TYPES,
 } from '../../constants/mediaTypes';
+import {AudioPlaceholderType} from '../../navigation/types/audio';
 import {colors, spacing} from '../../theme';
 import {bytesToMB, formatMB, getFileExtension} from '../../utils/file';
 import {UploadSlot} from '../UploadSlot';
 import {Section} from './Section';
 
-type AudioType = {
-  uri: string;
-  name: string | null;
-  size: number | null;
+type AudioFileSectionProps = {
+  setAudio: React.Dispatch<React.SetStateAction<AudioPlaceholderType | null>>;
+  audio: AudioPlaceholderType | null;
 };
 
-const AudioFileSection = () => {
-  const [audio, setAudio] = useState<AudioType | null>(null);
-
+const AudioFileSection: FC<AudioFileSectionProps> = ({audio, setAudio}) => {
   const title = audio ? audio.name : 'Upload Audio';
 
   const description = useMemo(() => {
@@ -52,7 +50,7 @@ const AudioFileSection = () => {
     } catch (error) {
       console.error(error);
     }
-  }, []);
+  }, [setAudio]);
 
   return (
     <Section title="Audio File" iconName="musical-notes">
