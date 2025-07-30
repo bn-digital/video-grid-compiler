@@ -4,9 +4,37 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 > **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
 
-## Step 1: Start Metro
+## Step 1: Generate FFmpeg `.aar` File
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+The `ffmpeg-kit-full-gpl.aar` file is required because the official `ffmpeg-kit-react-native` library is deprecated or no longer properly maintained via Maven. To resolve this and ensure compatibility, we download and include the `.aar` file manually.
+
+The .aar will be placed at:
+
+```sh
+android/libs/ffmpeg-kit-full-gpl.aar
+```
+
+💡 Auto-generation
+
+This file will be automatically downloaded and added to your project when you run:
+
+```sh
+yarn install
+```
+
+🔧 Manual alternative
+
+If needed, you can manually download the `.aar` by running:
+
+```sh
+yarn run downloadAarFfmpeg
+```
+
+This command pulls the `.aar` file from GitHub and places it in the correct local directory.
+
+## Step 2: Start Metro
+
+You will need to run **Metro**, the JavaScript build tool for React Native.
 
 To start the Metro dev server, run the following command from the root of your React Native project:
 
@@ -18,7 +46,7 @@ npm start
 yarn start
 ```
 
-## Step 2: Build and run your app
+## Step 3: Build and run your app
 
 With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
 
@@ -62,7 +90,7 @@ If everything is set up correctly, you should see your new app running in the An
 
 This is one way to run your app — you can also build it directly from Android Studio or Xcode.
 
-## Step 3: Modify your app
+## Step 4: Modify your app
 
 Now that you have successfully run the app, let's make changes!
 
