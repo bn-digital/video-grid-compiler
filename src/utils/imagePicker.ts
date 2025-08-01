@@ -1,4 +1,4 @@
-import {Alert, Platform} from 'react-native';
+import {Alert} from 'react-native';
 import {CameraOptions} from 'react-native-image-picker';
 
 export const handleImagePickerError = (params: {
@@ -22,7 +22,7 @@ export const handleImagePickerError = (params: {
 
 export const videoPickerDefaultOptions: CameraOptions = {
   mediaType: 'video',
-  videoQuality: Platform.OS === 'ios' ? 'medium' : 'low',
+  videoQuality: 'high',
   presentationStyle: 'formSheet',
   formatAsMp4: true,
 };
