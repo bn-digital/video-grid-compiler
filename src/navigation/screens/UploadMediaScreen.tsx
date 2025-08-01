@@ -99,8 +99,6 @@ const styles = StyleSheet.create({
     paddingVertical: spacing.screenVertical,
   },
   btn: {
-    flex: 1,
-    justifyContent: 'flex-end',
     gap: spacing.contentGap,
   },
 });
