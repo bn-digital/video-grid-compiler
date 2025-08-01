@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {ActivityIndicator, Modal, StyleSheet, Text, View} from 'react-native';
-import {colors, spacing} from '../theme';
+import {colors} from '../theme';
 
 type ScreenLoaderProps = {shown: boolean; title: string};
 
@@ -27,12 +27,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    gap: spacing.contentGap,
+    gap: 6,
     backgroundColor: colors.background.backdrop,
   },
   title: {
-    fontSize: 16,
-    lineHeight: 24,
+    fontSize: 14,
+    lineHeight: 21,
     color: colors.typography.inverted,
     fontWeight: '500',
   },
