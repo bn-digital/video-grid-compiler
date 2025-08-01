@@ -1,49 +1,42 @@
-import React from 'react';
+import {format} from 'date-fns';
+import React, {FC} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {colors, spacing} from '../theme';
+import {formatMB, formatSecondsToMMSS} from '../utils/file';
 import {Card} from './cards/Card';
 
-const VideoDetails = () => {
+type VideoDetailsProps = {
+  duration: number;
+  size: number;
+  created: number;
+};
+
+const VideoDetails: FC<VideoDetailsProps> = ({created, duration, size}) => {
+  const fileSize = formatMB(size);
+  const createdDate = format(created, 'dd/MM/yyyy hh:mm:ss a');
+  const minutesSeconds = formatSecondsToMMSS(duration);
+
+  const renderItem = (title: string, result: string) => {
+    return (
+      <View style={styles.item}>
+        <Text style={styles.info} numberOfLines={1}>
+          {title}
+        </Text>
+        <Text style={styles.infoResult} numberOfLines={1} adjustsFontSizeToFit>
+          {result}
+        </Text>
+      </View>
+    );
+  };
+
   return (
     <Card>
       <View style={styles.wrapper}>
         <Text style={styles.title}>Video Details</Text>
         <View style={styles.content}>
-          <View style={styles.item}>
-            <Text style={styles.info} numberOfLines={1}>
-              Duration:
-            </Text>
-            <Text
-              style={styles.infoResult}
-              numberOfLines={1}
-              adjustsFontSizeToFit>
-              0:45
-            </Text>
-          </View>
-
-          <View style={styles.item}>
-            <Text style={styles.info} numberOfLines={1}>
-              Size:
-            </Text>
-            <Text
-              style={styles.infoResult}
-              numberOfLines={1}
-              adjustsFontSizeToFit>
-              12.5 MB
-            </Text>
-          </View>
-
-          <View style={styles.item}>
-            <Text style={styles.info} numberOfLines={1}>
-              Created:
-            </Text>
-            <Text
-              style={styles.infoResult}
-              numberOfLines={1}
-              adjustsFontSizeToFit>
-              6/23/2025, 4:54:59 PM
-            </Text>
-          </View>
+          {renderItem('Duration:', minutesSeconds)}
+          {renderItem('Size:', `${fileSize} MB`)}
+          {renderItem('Created:', createdDate)}
         </View>
       </View>
     </Card>

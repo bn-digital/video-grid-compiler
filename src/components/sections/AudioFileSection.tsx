@@ -1,13 +1,12 @@
-import {pick} from '@react-native-documents/picker';
 import React, {FC, useCallback, useMemo} from 'react';
-import {Alert, Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {
-  AUDIO_PICKER_ANDROID_TYPES,
-  AUDIO_PICKER_IOS_TYPES,
-} from '../../constants/mediaTypes';
 import {AudioPlaceholderType} from '../../navigation/types/audio';
 import {colors, spacing} from '../../theme';
+import {
+  getLocalCopyOfVirtualAudio,
+  pickAudioFile,
+} from '../../utils/audioPicker';
 import {bytesToMB, formatMB, getFileExtension} from '../../utils/file';
 import {UploadSlot} from '../UploadSlot';
 import {Section} from './Section';
@@ -32,21 +31,19 @@ const AudioFileSection: FC<AudioFileSectionProps> = ({audio, setAudio}) => {
 
   const handlePickAudio = useCallback(async () => {
     try {
-      const [result] = await pick({
-        allowMultiSelection: false,
-        mode: 'import',
-        presentationStyle: 'formSheet',
-        type:
-          Platform.OS === 'ios'
-            ? AUDIO_PICKER_IOS_TYPES
-            : AUDIO_PICKER_ANDROID_TYPES,
-      });
-
-      if (result.error) {
-        return Alert.alert('Error', result.error);
+      const file = await pickAudioFile();
+      if (!file) {
+        return;
       }
 
-      setAudio({name: result.name, uri: result.uri, size: result.size});
+      if (file.isVirtual || Platform.OS === 'ios') {
+        return setAudio({name: file.name, uri: file.uri, size: file.size});
+      }
+
+      const localUri = await getLocalCopyOfVirtualAudio(file);
+      if (localUri) {
+        setAudio({name: file.name, uri: localUri, size: file.size});
+      }
     } catch (error) {
       console.error(error);
     }

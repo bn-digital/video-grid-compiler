@@ -1,4 +1,4 @@
-import {useNavigation} from '@react-navigation/native';
+import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {StyleSheet, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -17,6 +17,8 @@ const CompiledVideoScreen = () => {
     useNavigation<
       NativeStackNavigationProp<RootStackParamList, Routes.COMPILED_VIDEO>
     >();
+  const {params} =
+    useRoute<RouteProp<RootStackParamList, Routes.COMPILED_VIDEO>>();
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -26,19 +28,21 @@ const CompiledVideoScreen = () => {
           subtitle="Your video clip has been created and is ready to preview and download"
         />
         <Section title="Preview" iconName="play-circle">
-          <Video
-            source={{uri: 'https://www.w3schools.com/html/mov_bbb.mp4'}}
-            style={styles.video}
-            controls
-          />
-        </Section>
+          <View style={styles.videoSection}>
+            <Video source={{uri: params.path}} style={styles.video} controls />
 
-        <VideoDetails />
+            <VideoDetails
+              created={params.created}
+              duration={params.duration}
+              size={params.size}
+            />
+          </View>
+        </Section>
 
         <View style={styles.btn}>
           <Button
-            iconName="film-outline"
-            title="Compile Video Clip"
+            iconName="download-outline"
+            title="Download Video"
             onPress={() => {}}
           />
           <TextButton
@@ -65,16 +69,16 @@ const styles = StyleSheet.create({
     paddingVertical: spacing.screenVertical,
   },
   btn: {
-    flex: 1,
-    justifyContent: 'flex-end',
     gap: spacing.contentGap,
   },
   video: {
-    width: '100%',
-    aspectRatio: 16 / 9,
+    flex: 1,
+    aspectRatio: 9 / 16,
     borderRadius: spacing.borderRadius,
     overflow: 'hidden',
+    alignSelf: 'center',
   },
+  videoSection: {flex: 1, gap: spacing.contentGap},
 });
 
 export {CompiledVideoScreen};

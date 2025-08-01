@@ -19,7 +19,7 @@ const Section: FC<PropsWithChildren<SectionProps>> = ({
         <Icon name={iconName} size={27} color={colors.typography.primary} />
         <Text style={styles.sectionTitle}>{title}</Text>
       </View>
-      {children}
+      <View style={styles.content}>{children}</View>
     </View>
   );
 };
@@ -27,6 +27,7 @@ const Section: FC<PropsWithChildren<SectionProps>> = ({
 const styles = StyleSheet.create({
   section: {
     paddingVertical: spacing.sectionMargin,
+    flex: 1,
   },
   sectionTop: {
     flexDirection: 'row',
@@ -39,6 +40,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: colors.typography.primary,
   },
+  content: {flex: 1},
 });
 
 export {Section};
