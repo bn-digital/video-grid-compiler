@@ -1,5 +1,6 @@
+import {CameraRoll} from '@react-native-camera-roll/camera-roll';
 import {FFprobeKit} from 'ffmpeg-kit-react-native';
-import {Platform} from 'react-native';
+import {Alert, PermissionsAndroid, Platform} from 'react-native';
 import RNFS from 'react-native-fs';
 
 export const getFileExtension = (fileName?: string | null): string | null => {
@@ -36,6 +37,53 @@ export const getCompiledVideoOutputPath = (date: number) => {
       : RNFS.DocumentDirectoryPath;
   return `${dir}/${fileName}`;
 };
+
+async function hasAndroidPermission() {
+  if (Platform.OS !== 'android') {
+    return true;
+  }
+
+  if (Platform.Version >= 33) {
+    const permissions = [
+      PermissionsAndroid.PERMISSIONS.READ_MEDIA_VIDEO,
+      PermissionsAndroid.PERMISSIONS.READ_MEDIA_IMAGES,
+    ];
+
+    const statuses = await PermissionsAndroid.requestMultiple(permissions);
+    return (
+      statuses[PermissionsAndroid.PERMISSIONS.READ_MEDIA_VIDEO] ===
+        PermissionsAndroid.RESULTS.GRANTED &&
+      statuses[PermissionsAndroid.PERMISSIONS.READ_MEDIA_IMAGES] ===
+        PermissionsAndroid.RESULTS.GRANTED
+    );
+  }
+
+  const status = await PermissionsAndroid.request(
+    PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
+  );
+  return status === PermissionsAndroid.RESULTS.GRANTED;
+}
+
+export async function saveVideoToGallery(localVideoPath: string) {
+  const hasPermission = await hasAndroidPermission();
+  if (!hasPermission) {
+    Alert.alert('Permission denied', 'Cannot save video without permission.');
+    return;
+  }
+
+  try {
+    const savedUri = await CameraRoll.saveAsset(localVideoPath, {
+      type: 'video',
+      album: 'Video grid compiler',
+    });
+
+    Alert.alert('Saved', 'Video saved to gallery.');
+    return savedUri;
+  } catch (error) {
+    console.error('Error saving video:', error);
+    Alert.alert('Error', 'Failed to save video.');
+  }
+}
 
 export const getCompiledVideoDuration = async (
   path: string,

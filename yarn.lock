@@ -1383,6 +1383,11 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@react-native-camera-roll/camera-roll@7.10.1":
+  version "7.10.1"
+  resolved "https://registry.yarnpkg.com/@react-native-camera-roll/camera-roll/-/camera-roll-7.10.1.tgz#55c511d30caac6dbf9c9bc57db3417a88bbde88c"
+  integrity sha512-6zuK+E+z3a4Nij5OrkMh9BL7J1/Eg0PB8iX7/chNwhghpTZ93cr3Zrj/02ueglN0BV/tIKmb+BDERfzVIGRT7w==
+
 "@react-native-community/cli-clean@18.0.0":
   version "18.0.0"
   resolved "https://registry.yarnpkg.com/@react-native-community/cli-clean/-/cli-clean-18.0.0.tgz#cdb414c069e0f6d2c1bca02cb48ec3c0f9686e3e"
@@ -1539,11 +1544,6 @@
   version "10.1.5"
   resolved "https://registry.yarnpkg.com/@react-native-documents/picker/-/picker-10.1.5.tgz#3b9cd338210e70602a30d739f2c3ee919177c6a9"
   integrity sha512-ajn55rNyxUqbQbz5gmm9gYFI1ifHBmMLH4jVWViA7IFqk1EiEM+pJcpoHizWr5hetR6tzQsaoI4vzCNv/WyA7w==
-
-"@react-native-documents/viewer@1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@react-native-documents/viewer/-/viewer-1.0.1.tgz#588e0e5772b824e3c8cb6252f63bd8eee599a13f"
-  integrity sha512-0mn+UkQ/+NYNgHQoVVXiIwTaPDNZ1vH8xgjYNOerDcpihMWRGoDT5zmwk1jAC9YxgTEoKttFRA+0JhEt+4cnFQ==
 
 "@react-native/assets-registry@0.79.5":
   version "0.79.5"
@@ -5658,11 +5658,6 @@ react-is@^19.1.0:
   version "19.1.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-19.1.1.tgz#038ebe313cf18e1fd1235d51c87360eb87f7c36a"
   integrity sha512-tr41fA15Vn8p4X9ntI+yCyeGSf1TlYaY5vlTZfQmeLBrFo3psOPX6HhTDnFNL9uj3EhP0KAQ80cugCl4b4BERA==
-
-react-native-create-thumbnail@2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/react-native-create-thumbnail/-/react-native-create-thumbnail-2.1.1.tgz#633fa52ac17fdf78d19c2c5201382d449f296094"
-  integrity sha512-3rawLi0mZiKfPh53C3mbrI9EVVzLWLYiDynUdpAe/I36XbSSFupxP9+g10/rrhhTNX8NSg/4zAC8Z7P9epnt+g==
 
 react-native-edge-to-edge@1.6.2:
   version "1.6.2"

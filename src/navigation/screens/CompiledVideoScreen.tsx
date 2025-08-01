@@ -9,6 +9,7 @@ import {Button} from '../../components/buttons/Button';
 import {TextButton} from '../../components/buttons/TextButton';
 import {Section} from '../../components/sections/Section';
 import {colors, spacing} from '../../theme';
+import {saveVideoToGallery} from '../../utils/file';
 import {RootStackParamList} from '../types/params';
 import {Routes} from '../types/routes';
 
@@ -43,7 +44,9 @@ const CompiledVideoScreen = () => {
           <Button
             iconName="download-outline"
             title="Download Video"
-            onPress={() => {}}
+            onPress={() => {
+              saveVideoToGallery(params.path);
+            }}
           />
           <TextButton
             iconName="arrow-back"

@@ -12,15 +12,14 @@
     "downloadAarFFmpeg": "cd android && ./gradlew :app:downloadAar"
   },
   "dependencies": {
+    "@react-native-camera-roll/camera-roll": "7.10.1",
     "@react-native-documents/picker": "10.1.5",
-    "@react-native-documents/viewer": "1.0.1",
     "@react-navigation/native": "^7.1.16",
     "@react-navigation/native-stack": "^7.3.23",
     "date-fns": "^4.1.0",
     "ffmpeg-kit-react-native": "^6.0.2",
     "react": "19.0.0",
     "react-native": "0.79.5",
-    "react-native-create-thumbnail": "2.1.1",
     "react-native-edge-to-edge": "1.6.2",
     "react-native-fs": "2.20.0",
     "react-native-image-picker": "8.2.1",
