@@ -4,33 +4,41 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 > **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
 
-## Step 1: Generate FFmpeg `.aar` File
+## Step 1: Ensure FFmpeg `.aar` File Is Available
 
-The `ffmpeg-kit-full-gpl.aar` file is required because the official `ffmpeg-kit-react-native` library is deprecated or no longer properly maintained via Maven. To resolve this and ensure compatibility, we download and include the `.aar` file manually.
+To integrate `ffmpeg-kit-full-gpl` into your project, you need to have the `.aar` file available locally because the Maven distribution may be deprecated or unstable.
 
-The .aar will be placed at:
+### 📂 Required file:
 
 ```sh
 android/libs/ffmpeg-kit-full-gpl.aar
 ```
 
-💡 Auto-generation
+### ⚙️ Option 1: Automatically via Gradle
 
-This file will be automatically downloaded and added to your project when you run:
+This file will be downloaded or linked during the Gradle build process.
+
+> ✅ Run this command to trigger download/build of the `.aar`:
 
 ```sh
-yarn install
+./gradlew assembleDebug
 ```
 
-🔧 Manual alternative
+- Gradle will pull required .aar artifacts or build them, depending on your setup.
+- Ensure that `android/libs/` is correctly referenced in your `build.gradle` files (see below).
 
-If needed, you can manually download the `.aar` by running:
+### 🔧 Option 2: Manual Download (If Needed)
+
+If the `.aar` is not fetched or you're working offline, run:
 
 ```sh
 yarn run downloadAarFfmpeg
 ```
 
-This command pulls the `.aar` file from GitHub and places it in the correct local directory.
+This will:
+
+- Download the AAR from GitHub or a known source.
+- Place it into `android/libs/ffmpeg-kit-full-gpl.aar`.
 
 ## Step 2: Start Metro
 
