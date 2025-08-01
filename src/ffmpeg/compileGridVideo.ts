@@ -1,10 +1,7 @@
 import {FFmpegKit} from 'ffmpeg-kit-react-native';
 import {Alert} from 'react-native';
 import RNFS from 'react-native-fs';
-import {
-  CompileGridVideoParams,
-  CompileGridVideoResult,
-} from '../navigation/types/compile';
+import {CompileGridVideoParams, CompileGridVideoResult} from '../types/compile';
 import {
   bytesToMB,
   getCompiledVideoDuration,

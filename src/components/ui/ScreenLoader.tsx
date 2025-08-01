@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {ActivityIndicator, Modal, StyleSheet, Text, View} from 'react-native';
-import {colors} from '../theme';
+import {colors} from '../../theme';
 
 type ScreenLoaderProps = {shown: boolean; title: string};
 

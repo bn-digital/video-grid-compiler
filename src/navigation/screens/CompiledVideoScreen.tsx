@@ -5,13 +5,13 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import Video from 'react-native-video';
 import {Header} from '../../components/Header';
 import {VideoDetails} from '../../components/VideoDetails';
-import {Button} from '../../components/buttons/Button';
-import {TextButton} from '../../components/buttons/TextButton';
 import {Section} from '../../components/sections/Section';
+import {Button} from '../../components/ui/buttons/Button';
+import {TextButton} from '../../components/ui/buttons/TextButton';
 import {colors, spacing} from '../../theme';
+import {RootStackParamList} from '../../types/params';
+import {Routes} from '../../types/routes';
 import {saveVideoToGallery} from '../../utils/file';
-import {RootStackParamList} from '../types/params';
-import {Routes} from '../types/routes';
 
 const CompiledVideoScreen = () => {
   const navigation =

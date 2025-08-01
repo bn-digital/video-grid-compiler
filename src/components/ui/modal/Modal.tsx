@@ -9,7 +9,7 @@ import {
   View,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {colors, spacing} from '../../theme';
+import {colors, spacing} from '../../../theme';
 
 type ModalProps = {
   shown: boolean;

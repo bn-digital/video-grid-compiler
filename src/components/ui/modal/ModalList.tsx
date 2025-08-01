@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {StyleSheet, Text, TouchableHighlight, View} from 'react-native';
-import {colors} from '../../theme';
+import {colors} from '../../../theme';
 
 type ModalListProps = {
   list: {title: string; onPress: () => void}[];

@@ -2,7 +2,7 @@ import React, {FC, useRef, useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Asset} from 'react-native-image-picker';
 import {spacing} from '../../theme';
-import {VideoPickerModal} from '../modal/VideoPickerModal';
+import {VideoPickerModal} from '../VideoPickerModal';
 import {VideoPlaceholder} from '../VideoPlaceholder';
 import {Section} from './Section';
 

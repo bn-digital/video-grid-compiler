@@ -3,7 +3,7 @@ import React, {FC} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {colors, spacing} from '../theme';
 import {formatMB, formatSecondsToMMSS} from '../utils/file';
-import {Card} from './cards/Card';
+import {Card} from './ui/cards/Card';
 
 type VideoDetailsProps = {
   duration: number;

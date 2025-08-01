@@ -1,8 +1,8 @@
 import React, {FC, useCallback, useMemo} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {AudioPlaceholderType} from '../../navigation/types/audio';
 import {colors, spacing} from '../../theme';
+import {AudioPlaceholderType} from '../../types/audio';
 import {
   getLocalCopyOfVirtualAudio,
   pickAudioFile,

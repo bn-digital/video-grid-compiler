@@ -1,8 +1,8 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../types/params';
+import {Routes} from '../../types/routes';
 import {CompiledVideoScreen} from '../screens/CompiledVideoScreen';
 import {UploadMediaScreen} from '../screens/UploadMediaScreen';
-import {RootStackParamList} from '../types/params';
-import {Routes} from '../types/routes';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 

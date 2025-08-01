@@ -4,16 +4,16 @@ import {useState} from 'react';
 import {Alert, StyleSheet, View} from 'react-native';
 import {Asset} from 'react-native-image-picker';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {Button} from '../../components/buttons/Button';
 import {Header} from '../../components/Header';
-import {ScreenLoader} from '../../components/ScreenLoader';
 import {AudioFileSection} from '../../components/sections/AudioFileSection';
 import {VideoFilesSection} from '../../components/sections/VideoFilesSection';
+import {Button} from '../../components/ui/buttons/Button';
+import {ScreenLoader} from '../../components/ui/ScreenLoader';
 import {compileGridVideo} from '../../ffmpeg/compileGridVideo';
 import {colors, spacing} from '../../theme';
-import {AudioPlaceholderType} from '../types/audio';
-import {RootStackParamList} from '../types/params';
-import {Routes} from '../types/routes';
+import {AudioPlaceholderType} from '../../types/audio';
+import {RootStackParamList} from '../../types/params';
+import {Routes} from '../../types/routes';
 
 const videoSlots = new Array(4).fill(null);
 

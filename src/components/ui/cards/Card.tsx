@@ -1,6 +1,6 @@
 import React, {FC, PropsWithChildren} from 'react';
 import {StyleSheet, View} from 'react-native';
-import {colors, spacing} from '../../theme';
+import {colors, spacing} from '../../../theme';
 
 const Card: FC<PropsWithChildren> = ({children}) => {
   return <View style={styles.card}>{children}</View>;

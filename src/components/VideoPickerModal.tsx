@@ -7,10 +7,10 @@ import {
 import {
   handleImagePickerError,
   videoPickerDefaultOptions,
-} from '../../utils/imagePicker';
-import {normalizeRef} from '../../utils/normalizeRef';
-import {Modal} from './Modal';
-import {ModalList} from './ModalList';
+} from '../utils/imagePicker';
+import {normalizeRef} from '../utils/normalizeRef';
+import {Modal} from './ui/modal/Modal';
+import {ModalList} from './ui/modal/ModalList';
 
 type VideoPickerModalProps = {
   setModalShown: React.Dispatch<React.SetStateAction<boolean>>;
