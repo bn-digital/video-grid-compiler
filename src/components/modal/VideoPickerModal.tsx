@@ -30,9 +30,7 @@ const VideoPickerModal = forwardRef<number, VideoPickerModalProps>(
         throw new Error('No selected item');
       }
 
-      const selectionLimit = assets
-        .slice(activeIndexRef.current)
-        .filter(asset => !asset).length;
+      const selectionLimit = assets.slice(activeIndexRef.current).length;
 
       try {
         const result = await launchImageLibrary({
@@ -51,11 +49,7 @@ const VideoPickerModal = forwardRef<number, VideoPickerModalProps>(
           let index = 0;
 
           return assets.map((asset, i) => {
-            if (
-              i >= activeIndexRef.current! &&
-              asset === null &&
-              index < result.assets!.length
-            ) {
+            if (i >= activeIndexRef.current! && index < result.assets!.length) {
               return result.assets![index++];
             }
             return asset;
